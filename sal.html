@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>American Legion SAL - Squadron 200</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="American Legion Post 200 – Boiling Springs, South Carolina" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="assets/styles/styles.css" />
+
+  <!-- Unified Ticker Styles -->
+  <link rel="stylesheet" href="assets/styles/ticker.css" />
+</head>
+
+<body class="page-sal">
+
+  <header class="site-header">
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+      <div class="top-bar-inner">
+        <span class="top-bar-post-name">American Legion SAL - Squadron 200 Page</span>
+        <span class="top-bar-location">Boiling Springs, South Carolina</span>
+      </div>
+    </div>
+
+    <!-- BANNER -->
+    <div class="banner-wrapper">
+      <div class="full-banner">
+        <img
+          src="assets/images/post200-america250-banner (gemini).png"
+          alt="American Legion Post 200 Commemorative Banner"
+          class="full-banner-img"
+        >
+      </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="main-nav">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+      </label>
+
+      <ul class="nav-list">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="auxiliary.html" class="nav-link">Auxiliary</a></li>
+        <li><a href="honor-color-guard.html" class="nav-link">Honor & Color Guard</a></li>
+        <li><a href="membership.html" class="nav-link">Membership</a></li>
+        <li><a href="photos.html" class="nav-link">Photos</a></li>
+        <li><a href="riders.html" class="nav-link">Riders</a></li>
+        <li><a href="sal.html" class="nav-link active">SAL</a></li>
+        <li><a href="veteran-news.html" class="nav-link">Veteran News</a></li>
+        <li><a href="veteran-resources.html" class="nav-link">Veteran Resources</a></li>
+      </ul>
+    </nav>
+
+  </header>
+
+  <!-- ⭐ UNIFIED TICKER INCLUDE ⭐ -->
+  <div id="ticker-container"></div>
+
+  <script>
+    fetch("assets/components/ticker.html")
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById("ticker-container").innerHTML = html;
+
+        const script = document.createElement("script");
+        script.src = "assets/scripts/ticker.js";
+        document.body.appendChild(script);
+      })
+      .catch(err => console.error("Error loading ticker.html:", err));
+  </script>
+
+  <main class="site-main">
+
+    <div class="page-body">
+      <div class="main-content">
+
+        <!-- ⭐ SAL INTRO -->
+        <section class="content-section">
+          <h2 class="section-heading">Sons of the American Legion – Squadron 200</h2>
+
+          <div class="section-content">
+            <p>
+              Honoring the service of veterans by supporting the Legion’s mission through
+              volunteerism, youth programs, and community service.
+            </p>
+          </div>
+        </section>
+
+        <!-- ⭐ SAL DETAILS -->
+        <section class="content-section">
+          <div class="section-content">
+
+            <h3>Purpose</h3>
+            <p>
+              The Sons of the American Legion support veterans, promote patriotism,
+              and strengthen the community through service and leadership.
+            </p>
+
+            <h3>Eligibility</h3>
+            <p>Open to sons and grandsons of eligible veterans.</p>
+
+            <h3>Programs</h3>
+            <ul>
+              <li>Youth outreach</li>
+              <li>Community service</li>
+              <li>Veteran support initiatives</li>
+              <li>Fundraising events</li>
+            </ul>
+
+            <h3>Meetings</h3>
+            <p>
+              Held on <strong>[Day]</strong> at <strong>[Time]</strong> at Post 200.
+            </p>
+
+          </div>
+        </section>
+
+        <!-- ⭐ AMERICA250 COUNTDOWN -->
+        <div id="countdown-container">
+          <h2 class="countdown-title">Countdown to America's 250th Anniversary:</h2>
+          <div id="countdown">
+            <div><span id="days"></span><label>Days</label></div>
+            <div><span id="hours"></span><label>Hours</label></div>
+            <div><span id="minutes"></span><label>Minutes</label></div>
+            <div><span id="seconds"></span><label>Seconds</label></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- COUNTDOWN SCRIPT -->
+  <script>
+    function updateCountdown() {
+      const targetDate = new Date("July 4, 2026 00:00:00").getTime();
+      const now = new Date().getTime();
+      const diff = targetDate - now;
+
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "It's July 4th!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    }
+
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> American Legion Post 200 – Boiling Springs, South Carolina</p>
+      <p class="footer-small">“For God and Country”</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
