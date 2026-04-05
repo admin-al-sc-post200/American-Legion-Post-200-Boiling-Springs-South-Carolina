@@ -1,0 +1,103 @@
+/* ============================================
+   VETERAN RESOURCES — PAGE-SPECIFIC STYLES
+   ============================================ */
+
+/* --------------------------------------------
+   PAGE HERO
+-------------------------------------------- */
+.page-veteran-resources .page-hero {
+  background: #003366;
+  color: #ffffff;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+/* --------------------------------------------
+   PRIMARY RESOURCE CARDS
+-------------------------------------------- */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.resource-card {
+  background: #ffffff;
+  border: 2px solid #003366;
+  padding: 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.resource-card h3 {
+  margin-top: 0;
+  color: #003366;
+}
+
+.resource-card p {
+  margin-bottom: 1rem;
+}
+
+.resource-card .button {
+  display: inline-block;
+  background: #003366;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.resource-card .button:hover {
+  background: #0055aa;
+}
+
+/* --------------------------------------------
+   ADDITIONAL RESOURCES — COLUMN LAYOUT
+   (FULLY SANDBOXED TO PREVENT INHERITANCE)
+-------------------------------------------- */
+
+.content-section .resource-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.content-section .resource-col h4 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #003366;
+}
+
+.content-section .resource-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.content-section .resource-col ul li {
+  margin-bottom: 8px;
+}
+
+.content-section .resource-col ul li a {
+  color: #003366;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.content-section .resource-col ul li a:hover {
+  text-decoration: underline;
+  color: #990000;
+}
+
+/* --------------------------------------------
+   MOBILE RESPONSIVENESS
+-------------------------------------------- */
+@media (max-width: 600px) {
+  .content-section .resource-columns {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,476 @@
+/* --------------------------------------------------
+   BASE RESET
+-------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", Arial, sans-serif;
+  color: #222;
+  background-color: #f4f4f4;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------
+   CONTAINERS
+-------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* --------------------------------------------------
+   TYPOGRAPHY
+-------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: "Merriweather", "Times New Roman", serif;
+  margin-top: 0;
+  color: #003366;
+}
+
+h1 { font-size: 1.9rem; }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.2rem; }
+
+/* --------------------------------------------------
+   GLOBAL SECTION ALIGNMENT
+-------------------------------------------------- */
+.section-heading {
+  margin-left: 96px;
+  text-align: left;
+  margin-bottom: 0.5rem;
+}
+
+.section-content {
+  margin-left: 112px;
+  max-width: 800px;
+  text-align: left;
+}
+
+.content-section,
+.pillars-section,
+.home-news {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* --------------------------------------------------
+   TOP BAR
+-------------------------------------------------- */
+.top-bar {
+  background-color: #990000;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+.top-bar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.35rem 1rem;
+}
+
+.top-bar-post-name { font-weight: 600; }
+.top-bar-location { opacity: 0.9; }
+
+/* --------------------------------------------------
+   BANNER
+-------------------------------------------------- */
+.banner-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.full-banner {
+  width: 728px;
+  height: 90px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.full-banner-img {
+  width: 100%;
+  height: 90px;
+  display: block;
+}
+
+/* --------------------------------------------------
+   HEADER
+-------------------------------------------------- */
+header.site-header {
+  margin: 0;
+  padding: 0;
+}
+
+/* --------------------------------------------------
+   NAVIGATION
+-------------------------------------------------- */
+.main-nav {
+  background-color: #003366;
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+  margin-top: 1rem;
+  position: relative;
+}
+
+.nav-toggle { display: none; }
+
+.nav-toggle-label {
+  display: none;
+  position: absolute;
+  top: 0.4rem;
+  right: 1rem;
+  height: 1.8rem;
+  width: 2.2rem;
+  cursor: pointer;
+}
+
+.nav-toggle-label span,
+.nav-toggle-label span::before,
+.nav-toggle-label span::after {
+  display: block;
+  background-color: #fff;
+  height: 3px;
+  border-radius: 3px;
+  position: absolute;
+  width: 100%;
+  transition: transform 0.2s ease, top 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle-label span {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-toggle-label span::before {
+  content: "";
+  top: -7px;
+}
+
+.nav-toggle-label span::after {
+  content: "";
+ top: 7px;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.75rem 1rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  background-color: #001a33;
+}
+
+.nav-link.active {
+  background-color: #ffcc00;
+  color: #003366;
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+  .nav-toggle-label { display: block; }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-list li {
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .nav-toggle:checked ~ .nav-list {
+    display: flex;
+    background-color: #003366;
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span {
+    transform: rotate(45deg);
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span::before {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  .nav-toggle:checked + .nav-toggle-label span::after {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+/* --------------------------------------------------
+   PAGE BODY
+-------------------------------------------------- */
+.page-body {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 20px;
+  gap: 40px;
+}
+
+.main-content {
+  flex: 1;
+  padding: 0 20px;
+}
+
+/* --------------------------------------------------
+   CTA STRIP
+-------------------------------------------------- */
+.cta-strip {
+  background-color: #003366;
+  color: #fff;
+  padding: 1.5rem 0;
+  text-align: left;
+}
+
+.cta-strip h3 {
+  color: #ffcc00;
+  margin-bottom: 0.5rem;
+}
+
+.cta-strip a { color: #ffcc00; }
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.85rem;
+}
+
+.btn-gold {
+  background-color: #ffcc00;
+  color: #003366;
+}
+
+.btn-gold:hover,
+.btn-gold:focus {
+  background-color: #ffd84d;
+}
+
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
+.site-footer {
+  background-color: #001a33;
+  color: #fff;
+  padding: 1rem 0;
+  font-size: 0.85rem;
+}
+
+.footer-inner {
+  text-align: center;
+}
+
+.footer-small {
+  opacity: 0.8;
+  margin-top: 0.25rem;
+}
+
+/* --------------------------------------------------
+   COUNTDOWN
+-------------------------------------------------- */
+#countdown-container {
+  text-align: center;
+  padding: 20px 0;
+  color: #fff;
+  font-family: "Georgia", serif;
+}
+
+.countdown-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #f5d36b;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#countdown {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+#countdown div {
+  background: rgba(0,0,0,0.35);
+  padding: 10px 15px;
+  border-radius: 6px;
+  min-width: 80px;
+}
+
+#countdown span {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+}
+
+#countdown label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #f5d36b;
+}
+
+/* --------------------------------------------------
+   SPACER UTILITY
+-------------------------------------------------- */
+.spacer {
+  margin-top: 1.5rem;
+}
+
+/* --------------------------------------------------
+   HOME PAGE BACKGROUND FIX (Option A)
+-------------------------------------------------- */
+body.page-home {
+  background-color: transparent !important;
+  position: relative;
+  z-index: 0;
+}
+
+/* --------------------------------------------------
+   HOME WATERMARK
+-------------------------------------------------- */
+.page-home {
+  position: relative;
+}
+
+.page-home::before {
+  content: "";
+  position: fixed;
+  top: 350px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 1000px; /* FIXED */
+  background-image: url("/assets/images/post200-america250-watermark.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.18;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------
+   AUXILIARY WATERMARK
+-------------------------------------------------- */
+.page-auxiliary {
+  position: relative;
+}
+
+.page-auxiliary::before {
+  content: "";
+  position: fixed;
+  top: 350px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 1000px;
+  background-image: url("../images/auxiliary-watermark.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.12;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------
+   HONOR AND COLOR GUARD WATERMARK
+-------------------------------------------------- */
+.page-honor-color-guard {
+  position: relative;
+}
+
+.page-honor-color-guard::before {
+  content: "";
+  position: fixed;
+  top: 350px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 1000px;
+  background-image: url("../images/honor-color-guard-watermark.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.45;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------
+   RIDERS WATERMARK
+-------------------------------------------------- */
+.page-riders {
+  position: relative;
+}
+
+.page-riders::before {
+  content: "";
+  position: fixed;
+  top: 350px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 1000px;
+  background-image: url("../images/riders-watermark.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.12;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------
+   SAL WATERMARK
+-------------------------------------------------- */
+.page-sal {
+  position: relative;
+}
+
+.page-sal::before {
+  content: "";
+  position: fixed;
+  top: 350px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1000px;
+  height: 1000px;
+  background-image: url("../images/sal-watermark.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.12;
+  z-index: -1;
+  pointer-events: none;
+}
